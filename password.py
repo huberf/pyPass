@@ -1,6 +1,10 @@
 import re
-from encryption import *
-encrypter = encryption()
+try:
+    from textcrypt import *
+    encrypter = textcrypt.Encrypt()
+except:
+    from encryption import *
+    encrypter = encryption()
 import getpass
 
 print "Hello " + getpass.getuser()

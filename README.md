@@ -7,6 +7,8 @@ Setup:
 1. Use the built-in c0d3sPl41n.txt file or make your own (technical users only),
    and fill it with passwords using the same format shown in the c0d3sPl41n.txt
    file.
+   Optional, but run 'pip install textcrypt' to have the latest and greatest
+   encryption protection.
 2. Run `python encrypt.py` and enter a password string.
 3. Feel free to delete c0d3sPl41n.txt. Your encrypted passwords are now stored
    by default in c0d3sC1ph3r.txt

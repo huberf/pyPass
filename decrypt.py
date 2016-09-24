@@ -1,8 +1,11 @@
-from encryption import *
+try:
+    from textcrypt import *
+    encrypter = textcrypt.Encrypt()
+except:
+    from encryption import *
+    encrypter = encryption()
 import getpass
 import sys
-
-encrypter = encryption()
 
 firstText = getpass.getpass()
 secondText = getpass.getpass("Re-enter Password:")
