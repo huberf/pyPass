@@ -9,44 +9,33 @@ import getpass
 
 print "Hello " + getpass.getuser()
 key = encrypter.padKey(getpass.getpass())
-if True:
-    while True:
-        passwords = open("c0d3sC1ph3r.txt", 'r')
-        cipherText = passwords.read()
-        decipheredText = encrypter.decrypt(cipherText, key)
-        tmp = open("temp.dat", 'w')
-        tmp.write(decipheredText)
-        tmp.close()
-        passwords = open("temp.dat", 'r')
-        line = " "
-        decryptLine = ""
-        print "Enter the name of the organization or site..."
-        name = raw_input("> ")
-        found = False
-        while not line == "":
-                line = passwords.readline()
-                matches = re.findall(name, line,re.IGNORECASE)
-                isTitle = True
-                if line == "" or not line[0] == 'T':
-                    isTitle = False
-                if matches and isTitle:
-                        found = True
-                        print line[0:len(line)-1]
-                        line = ""
-                        # Now iterate, printing each line, until the next entry begins
-                        while line == "" or (not line[0] == "T"):
-				if not line == "":
-	                                print line[0:len(line)-1]
-                                line = passwords.readline()
+while True:
+    passwords = open("c0d3sC1ph3r.txt", 'r')
+    cipherText = passwords.read()
+    decipheredText = encrypter.decrypt(cipherText, key)
+    print "Enter the name of the organization or site..."
+    name = raw_input("> ")
+    found = False
+    hasRecord = False
+    passwords = decipheredText.split("\n")
+    for line in passwords:
+        matches = re.findall(name, line, re.IGNORECASE)
+        isTitle = True
+        if line == "" or not line[0] == 'T':
+            isTitle = False
+        elif line[0] == 'T' and found:
+            found = False
 
-        if not found:
-                print "No matching entries found!"
+        if found:
+            print line
 
-        tmp = open("temp.dat", 'w')
-        tmp.write("")
-        tmp.close()
-else:
-    print "Get out of the system hacker!!!!!"
+        if matches and isTitle:
+            hasRecord = True
+            found = True
+            print line
+
+    if not hasRecord:
+            print "No matching entries found!"
 
 
 '''
