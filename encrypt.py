@@ -1,3 +1,4 @@
+# Import textcrypt if it exists or use included library if not
 try:
     from textcrypt import *
     encrypter = textcrypt.Encrypt()
@@ -7,6 +8,7 @@ except:
 import sys
 import getpass
 
+# Get and verify password
 firstText = getpass.getpass()
 secondText = getpass.getpass("Re-enter Password: ")
 
