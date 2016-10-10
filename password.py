@@ -13,11 +13,13 @@ while True:
     passwords = open("c0d3sC1ph3r.txt", 'r')
     cipherText = passwords.read()
     decipheredText = encrypter.decrypt(cipherText, key)
+    # TODO: Change to use curses for removal of output
     print "Enter the name of the organization or site..."
     name = raw_input("> ")
     found = False
     hasRecord = False
     passwords = decipheredText.split("\n")
+    # Search through each password record
     for line in passwords:
         matches = re.findall(name, line, re.IGNORECASE)
         isTitle = True
