@@ -1,4 +1,5 @@
 import re
+# Import textcrypt module or local library
 try:
     from textcrypt import *
     encrypter = textcrypt.Encrypt()
@@ -7,6 +8,7 @@ except:
     encrypter = encryption()
 import getpass
 
+# Authenticate. Beware, no warnings for incorrect password.
 print "Hello " + getpass.getuser()
 key = encrypter.padKey(getpass.getpass())
 while True:
