@@ -3,7 +3,7 @@ A Minimal Python Password Manager
 Specs:
 64-bit AES encryption
 
-Setup:
+## Setup:
 1. Use the built-in c0d3sPl41n.txt file or make your own (technical users only),
    and fill it with passwords using the same format shown in the c0d3sPl41n.txt
    file.
@@ -15,6 +15,9 @@ Setup:
 4. Run 'python password.py' and then enter your password string.
 5. Use its case insensitive search to find your account and password.
 6. Profit!
+
+## Web Version on Heroku:
+Work In Progress
 
 Although the AES encryption should be strong enough for many tasks, I cannot
 guarantee password security.
