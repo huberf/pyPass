@@ -4,8 +4,8 @@ from flask import request
 import passAPI
 app = Flask(__name__)
 
-
-searchForm = "<form action='/secure' method='POST'><input type='password' name='pass'></input><input type='text' name='search'></input><button>Submit</button></form>"
+searchForm = open('web_views/form.html')
+searchForm = searchForm.read()
 
 @app.route("/")
 def main():
