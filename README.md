@@ -17,7 +17,20 @@ Specs:
 6. Profit!
 
 ## Web Version on Heroku:
-Work In Progress
+The web version can be deployed to Heroku and all instances **must** use HTTPS
+for password retrieval for proper security.
+To setup on Heroku simply clone the repo and follow below commands:
+* Run `heroku create`
+* Enter `git push heroku master`
+* Checkout your password manager by typing `heroku open`
+* Optionally, create an SSL secured custom domain name for easier access
+Possible paths:
+* `/ - GET` - This is the default way to access your passwords in a GUI manner
+* `/secure - POST` - This is the page the form on `/` submits to. More passwords
+  can be retrieved from here as well.
+* `/api/v1/retrieve - GET` - This API endpoint enables programmatic retrieval of
+  data. Simply supply `pass` and `search` as GET parameters and it returns a
+  JSON object with the key `data` representing returned password info.
 
 Although the AES encryption should be strong enough for many tasks, I cannot
 guarantee password security.

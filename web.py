@@ -1,4 +1,5 @@
 import os
+import json
 from flask import Flask
 from flask import request
 import passAPI
@@ -16,6 +17,12 @@ def parse_request():
     key = request.form['pass']
     search = request.form['search']
     return searchForm + '<br />' + passAPI.search(key, search)
+
+@app.route("/api/v1/retrieve", methods=['GET'])
+def retrieve_pass():
+    key = request.args.get('pass')
+    search = request.args.get('search')
+    return json.dumps({'success': True, 'data': passAPI.search(key, search)})
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 4000))
